@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/mafia/Documents/nextjs-web/app/o-nas/page.tsx"],"sourcesContent":["export default function ONas() {\r\n  return (\r\n    <main>\r\n      <h1>O nás</h1>\r\n      <p>Jsme studenti, co se učí tvořit weby v Next.js!</p>\r\n    </main>\r\n  );\r\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;;0BACC,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
+}
