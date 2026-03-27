@@ -1,31 +1,54 @@
+// app/02_kurzy/page.tsx
 import Link from 'next/link';
 
-const COURSES = [
-  { id: 'web1', title: 'Základy HTML/CSS', credits: 4 },
-  { id: 'js-adv', title: 'JavaScript pro experty', credits: 6 },
-  { id: 'nextjs', title: 'Framework Next.js', credits: 5 },
-];
+// V Next.js 15 musíme parametry "awaitnout" (TypeScript to vyžaduje)
+export default async function CoursesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ hledat?: string }>;
+}) {
+  // Přečteme si, co uživatel napsal do URL (např. ?hledat=react)
+  const params = await searchParams;
+  const dotaz = params.hledat?.toLowerCase() || '';
 
-export default function CoursesPage() {
+  const COURSES = [
+    { id: 'web1', title: 'Základy HTML/CSS', credits: 4 },
+    { id: 'js-adv', title: 'JavaScript pro experty', credits: 6 },
+    { id: 'nextjs', title: 'Framework Next.js', credits: 5 },
+  ];
+
+  // Vyfiltrujeme kurzy podle URL (SSR v akci!)
+  const vyfiltrovane = COURSES.filter(c => c.title.toLowerCase().includes(dotaz));
+
   return (
     <div className="max-w-2xl">
-      <h1 className="text-3xl font-bold mb-6">Seznam kurzů</h1>
-      <ul className="divide-y divide-slate-200 border rounded-xl overflow-hidden bg-white">
-        {COURSES.map((course) => (
-          <li key={course.id} className="p-4 hover:bg-slate-50 flex justify-between items-center">
-            <div>
-              <span className="font-bold text-blue-700">{course.id.toUpperCase()}</span>
-              <h2 className="text-lg">{course.title}</h2>
-            </div>
-            <Link
-              href={`/02_kurzy/${course.id}`}
-              className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm"
-            >
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">Katalog kurzů</h1>
+        <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-bold">
+          ⚡ SSR Renderováno
+        </span>
+      </div>
+
+      <ul className="divide-y divide-slate-200 border rounded-xl bg-white">
+        {vyfiltrovane.map((course) => (
+          <li key={course.id} className="p-4 flex justify-between items-center">
+            <span className="font-bold">{course.title}</span>
+            <Link href={`/02_kurzy/${course.id}`} className="text-blue-600 hover:underline">
               Detail
             </Link>
           </li>
         ))}
       </ul>
+
+      {/* Odkaz, který nasimuluje hledání a spustí SSR */}
+      <div className="mt-6 flex gap-2">
+        <Link href="/02_kurzy?hledat=javascript" className="text-sm border p-2 rounded hover:bg-slate-50">
+          🔍 Hledat JavaScript
+        </Link>
+        <Link href="/02_kurzy" className="text-sm border p-2 rounded hover:bg-slate-50 text-red-600">
+          ✖ Zrušit filtr
+        </Link>
+      </div>
     </div>
   );
 }
