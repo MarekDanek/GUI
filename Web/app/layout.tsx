@@ -39,22 +39,24 @@ export default function RootLayout({
               </span>
             </Link>
 
+            {/* Odkazy do správných složek */}
             <div className="flex items-center gap-1 md:gap-8">
-              <Link href="/01_zakladni_stranka" className="px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all font-medium flex items-center gap-2">
+
+              <Link href="/01_ucitele" className="px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all font-medium flex items-center gap-2">
                 <span className="text-lg">👥</span>
                 <span className="hidden sm:inline">Učitelé</span>
               </Link>
 
-              <Link href="/02_jina_stranka" className="px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all font-medium flex items-center gap-2">
+              <Link href="/02_kurzy" className="px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-all font-medium flex items-center gap-2">
                 <span className="text-lg">📚</span>
                 <span className="hidden sm:inline">Kurzy</span>
               </Link>
 
-              {/* Tady je ten nový odkaz pro 3. část semináře */}
               <Link href="/03_prihlaska" className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all font-bold text-sm shadow-sm flex items-center gap-2">
                 <span>📝</span>
                 <span>Zápis</span>
               </Link>
+
             </div>
 
           </nav>

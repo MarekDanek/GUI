@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  /* Nastavení základních barev napevno na světlý režim */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a; /* Krásná tmavě modro-černá barva (slate-900) pro text */
 }
 
 @theme inline {
@@ -12,14 +13,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Smazali jsme @media (prefers-color-scheme: dark)!
+  Nyní bude web vypadat vždy čistě bíle, ať má uživatel nastaveno cokoliv.
+*/
 
 body {
-  background-color: white;
-  color: #0f172a;
+  background-color: var(--background);
+  color: var(--foreground);
+  /* Přidáme jemné vyhlazování písma, aby vypadalo víc "profi" */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
