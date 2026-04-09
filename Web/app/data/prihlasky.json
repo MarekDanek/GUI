@@ -12,5 +12,17 @@
     "email": "dwaw@ga.cz",
     "kurz": "Základy HTML/CSS",
     "casZapsani": "9. 4. 2026 9:35:09"
+  },
+  {
+    "id": "e3f21872-8ead-47e6-ac30-a9b7338ee470",
+    "jmeno": "BEN123Hovínek",
+    "email": "BEN@BEN.cz",
+    "kurz": "Framework Next.js",
+    "casZapsani": "9. 4. 2026 9:50:05"
+  },
+  {
+    "id": "d7fe4bf5-a866-4918-8d67-0154ebb73382",
+    "jmeno": "BEN",
+    "kurz": "Základy HTML/CSS"
   }
 ]
